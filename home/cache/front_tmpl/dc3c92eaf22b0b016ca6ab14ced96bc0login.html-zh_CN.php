@@ -1,0 +1,1 @@
+ <div class="PassportWrap"><?php echo $this->_fetch_compile_include($this->_get_resource('user:'.$this->theme.'/'."passport/index/login.html")?('user:'.$this->theme.'/'."passport/index/login.html"):('shop:'."passport/index/login.html"), array());?></div> 

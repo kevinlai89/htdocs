@@ -1,0 +1,130 @@
+<style id="ducegMenu-3-style">
+.ducegMenu-3 {width:210px;font-family:"宋体",Arial,Lucida,Verdana,Helvetica,sans-serif;}
+.dmg3-depth-0 {width:210px;margin:0;height:36px;background:url("images/dmg3-icon.gif") no-repeat center 0;overflow:hidden;}
+.dmg3-depth-0 a.depth-0 {width:160px;color:#fff;height:30px;line-height:22px;font-size:14px;display:block;padding:6px 20px 0 30px;}
+.dmg3-depth-0 a.depth-0:hover {text-decoration:none;color:#fff;}
+.ducegMenu-3 .onDmg3 {background-position:0 -38px;}
+.dmg3-popup0 {position:absolute;z-index:9999;}
+.dmg3-depth-0 ul.c {*float:left;background:#fef8ef;width:208px;border:1px solid #c40000;border-top:none;border-bottom:none;padding-top:2px;overflow:hidden;}
+.dmg3-depth-0 li.b {*float:left;width:210px;height:5px;clear:both;background:url("images/dmg3-icon.gif") no-repeat 0 -180px;<{if $_show != 'index'}>margin-top:-3px;<{/if}>;}
+.dmg3-depth-1 {*float:left;width:200px;margin:0 3px;_margin:0 1px 0 2px;height:32px;border-bottom:1px solid #fde6d2;}
+.dmg3-depth-1 .depth-1 {border:<{$setting.style1.border}>px solid #fef8ef;display:block;height:28px;background:url("images/dmg3-icon.gif") no-repeat 0 -115px;font-size:14px;padding-left:22px;color:<{$setting.style1.color}>;overflow:hidden;}
+.dmg3-depth-1 .depth-1 em{display:block;width:176px;height:23px;background:url("images/dmg3-icon.gif") no-repeat right -83px;padding-top:5px;cursor:pointer;}
+.dmg3-depth-1 .depth-1 em.nosub{background-position:right -207px;}
+.dmg3-depth-1 .depth-1:hover {text-decoration:none;}
+.ducegMenu-3 .hover .depth-1{height:28px;position:absolute;width:161px;border-color:<{$setting.style1.fbdcolor}>;border-right:none;z-index:1000;font-size:14px;background-color:#fff;}
+.ducegMenu-3 .hover .depth-1 em{font-weight:700;color:<{$setting.style1.hcolor}>;}
+
+.dmg3-popup {position:absolute;z-index:999;padding:0;background:#fff url("images/dmg3-line.gif") repeat-y <{$setting.style1.width|default:450}>px 0;border:<{$setting.style1.border}>px solid <{$setting.style1.fbdcolor}>;margin-left:183px;}
+.dmg3-drop-3 {float:left;width:<{math equation="x-20" x=$setting.style1.width|default:450}>px;padding:4px 10px 6px;}
+.dmg3-drop-3 dl.sub {float:left;width:<{math equation="x-20" x=$setting.style1.width|default:450}>px;border-bottom:1px solid #e8e8e8;padding:4px 0 6px;line-height:22px;}
+.dmg3-drop-3 .last{border-bottom:none;}
+.dmg3-drop-3 dl.sub dt {float:left;text-align:right;width:78px;font-weight:700;padding:3px 6px 0 0;overflow:hidden;}
+.dmg3-drop-3 dl.sub dt a{white-space:nowrap;color:#c00;font-weight:700;}
+.dmg3-drop-3 dl.sub dd{float:left;width:<{math equation="x-90" x=$setting.style1.width|default:450}>px;padding:3px 6px 0 0;}
+.dmg3-drop-3 dl.sub dd em{float:left;padding-left:6px;border-left:1px solid #ccc;height:14px;line-height:14px;margin:4px 6px 4px 0;color:<{$setting.style1.fcolor}>;white-space:nowrap;}
+.dmg3-drop-3 dl.sub dd a:hover em{color:<{$setting.style1.fhcolor}>;}
+.dmg3-drop-3 .subhot dt{color:#f60;}
+
+.dmg3-drop-b {float:left;padding:12px 10px 10px;width:<{math equation="x-20" x=$setting.style1.tagtreewidth|default:180}>px;}
+.dmg3-drop-b a {display:block;white-space:nowrap;height:21px;line-height:20px;*line-height:24px; _line-height:21px; color:#333;overflow:hidden;}
+.dmg3-drop-b .depth-2 {font-weight:700;border-bottom:1px solid #f2eae3;padding-bottom:6px;margin-bottom:6px;}
+.dmg3-drop-b ul.sub {position:relative;z-index:198;}
+.dmg3-drop-b ul.sub .depth-2,
+.dmg3-drop-b ul.sub .depth-2:hover {border-color:#d7e1ea;color:<{$setting.style1.tagtreefont}>;}
+.dmg3-drop-b ul.sub .all{display:inline;position:absolute;right:0;top:-1px;font-weight:700;}
+.dmg3-drop-b ul.sub {padding:2px 0 6px;}
+.dmg3-drop-b ul.sub li a {display:block;height:22px;color:#666;padding-left:5px;font-family:Verdana,Tahoma,Geneva,Helvetica,Arial,sans-serif;overflow:hidden; font-size:12px;}
+.dmg3-drop-b ul.sub li a:hover {color:<{$setting.style1.tagtreefont}>;background-color:<{$setting.style1.tagtreebg}>;text-decoration:none;}
+.dmg3-drop-b ul.sub li .depth-2:hover {color:<{$setting.style1.fhcolor}>;}
+.dmg3-drop-b .tagtree {border-top:1px solid #d7e1ea;padding:8px 0;margin-top:3px;}
+.dmg3-drop-b .tagtree a {color:#c00;}
+.ducegMenu-3 .cat-custom,
+.ducegMenu-3 .cat-custom a,
+.ducegMenu-3 .cat-custom a em,
+.ducegMenu-3 .cat-custom a.depth-1 em.nosub{background:#fdf1de;height:28px;font-size:12px;border:none;}
+
+.dmg3-drop-3 dl.sub dd{width:302px;}
+.borderqb {background:#fdf1de; } /*--全部商品分类背景色--*/
+</style>
+
+<{assign var="_show" value=$setting.show}>
+<div class="ducegMenu-3 clearfix">
+    <div class="dmg3-depth-0 <{if $_show}>onDmg3<{/if}>"><a class="depth-0" href="<{link ctl='gallery' act=grid}>"><strong>全部商品分类</strong></a>
+	<div class="dmg3-popup0" <{if !$_show}>style="display:none;"<{/if}>>
+	<ul class="c">
+	<{foreach from=$data item=parent key=parentId name=catslist}>
+	<{if $smarty.foreach.catslist.iteration <= $setting.showcatslist|default:'0' || $setting.showcatslist == 0 || $_show != 'index'}>
+	<li class="dmg3-depth-1 <{$parent.classname}> <{$parent.curr}> cat_<{$smarty.foreach.catslist.iteration}>"><a class="depth-1 <{$parent.onSel}>" href="<{if !$parent.url}><{link ctl='gallery' act=$setting.view arg0=$parentId}><{else}><{$parent.url}><{/if}>"><em <{if !$parent.sub}> class="nosub"<{/if}>><{$parent.label}></em></a>
+    <{if $parent.sub}><!--弹出分类-->
+	<div class="dmg3-popup" style="display:none;width:<{if $parent.brands}><{math equation="x+y" x=$setting.style1.width|default:450  y=$setting.style1.tagtreewidth|default:180}><{else}><{$setting.style1.width|default:450}><{/if}>px;">
+		<div class="dmg3-drop-3">	
+			<{if $parent.hotcats}>
+				<dl class="subhot">
+					<dt><{$setting.hottitle.{$parent.cat_id}|default:'热门分类'}></dt>
+					<dd>
+						<em><a href="<{link ctl=gallery arg0=$parent.cat_id arg1='' arg2=1 act=$setting.view}>">最新商品</a></em>
+						<em><a href="<{link ctl=gallery arg0=$parent.cat_id arg1='' arg2=8 act=$setting.view}>">畅销排行</a></em>
+						<{foreach from=$parent.hotcats item=hotcat}>
+						<em><a href="<{$hotcat.url}>"><{$hotcat.label}></a></em>
+						<{/foreach}>
+					</dd>
+					<div class="clear"></div>
+				</dl>			
+			<{/if}>
+			<{foreach from=$parent.sub item=child key=childId name=subcat}>
+				<dl class="sub <{if $smarty.foreach.subcat.last}>last<{/if}>">
+					<dt>
+						<a class="depth-2 <{$child.onSel}>" href="<{if !$child.url}><{link ctl='gallery' act=$setting.view arg0=$childId}><{else}><{$child.url}><{/if}>"><{$child.label}></a>
+					</dt>
+					<{if $setting.ducemenu_1_loop == '3' && $child.sub}>
+						<dd>
+							<{foreach from=$child.sub item=gChild key=gChildId name=childnum}>
+							<{if $smarty.foreach.childnum.iteration <= $setting.gshowmax || $setting.gshowmax == 0}>
+								<em><a class="<{$gChild.onSel}>" href="<{if !$gChild.url}><{link ctl='gallery' act=$setting.view arg0=$gChildId}><{else}><{$gChild.url}><{/if}>"><{$gChild.label}></a></em>
+								<{else}>
+								<em><a href="<{if !$parent.url}><{link ctl='gallery' act=$setting.view arg0=$parentId}><{else}><{$parent.url}><{/if}>">更多&gt;&gt;</a></em>
+								<{break}>
+							<{/if}>
+							<{/foreach}>
+						</dd>
+					<{/if}>
+					<div class="clear"></div>
+				</dl>
+			<{/foreach}>
+		</div>
+		
+		<{if $parent.brands}><!--品牌-->
+			<div class="dmg3-drop-b">
+				<h3><a class="depth-2"><{$setting.brandtitle.$parent.cat_id|default:'热门品牌'}></a></h3>
+				<ul class="sub">
+					<{counter start=1 assign="maxshow" print=false }>
+					<{foreach from=$parent.brands item=brand key=brandId}>
+						<{assign var=brand_id value="b,".$brand['id']}>
+						<{if $brand.name}><li><a href="<{link ctl='gallery' arg0=$parent.cat_id arg1=$brand_id act=$setting.view}>"><{$brand.name}></a></li><{/if}>
+					<{counter assign="maxshow" print=false}>
+					<{if $maxshow > $setting.brandshow}><{break}><{/if}>
+					<{/foreach}>
+				</ul>			
+				<{if $parent.tag}>
+					<ul class="tagtree">
+						<{foreach from=$parent.tag item=tag}>
+						<{assign var="tagid" value='t,'.$tag['id']}>
+						<li><a href="<{link ctl=gallery arg0=$parent.cat_id arg1=$tagid act=$setting.view}>"><{$tag.name}></a></li>
+						<{/foreach}>
+					</ul>
+				<{/if}>
+			</div>
+		<{/if}><!--品牌/-->
+	</div>
+	<{/if}>
+	</li>
+	<{else}>
+	<{break}>
+	<{/if}>
+	<{/foreach}>
+	</ul>
+	<li class="b"></li></div>
+	</div>
+</div>
+<script src="images/dmg3.pack.js" type="text/javascript"></script>

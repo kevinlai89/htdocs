@@ -1,0 +1,79 @@
+/*=挂件预设
+=============================================================================================*/
+h3{ margin:0; padding:0;}
+
+.ArticleListWrap li{ background:url(sign.gif) no-repeat 5px center; text-indent:10px;}
+
+.GoodsInfoWrap .goodsname { font-size:16px; border:none; background:none; color:#000; margin:0; padding:0 0 10px 0; text-align:center; line-height:20px;}
+
+
+.goods-detail-pic { overflow:hidden;position:relative;width:300px;height:300px; border:1px solid #EAEAEA; padding:1px;}
+
+.GoodsList .price0{ color:#E42E2F;}
+.GoodsList .price1{ color:#E42E2F; font-weight:bold;}
+
+.more a{ float:right; width:43px; height:11px; background:url(more.gif) no-repeat; font-size:0; line-height:9999px; overflow:hidden; cursor:pointer;}
+
+.RankingList{ padding:0 10px;}
+.RankingList table{ margin-bottom:8px; line-height:18px;}
+.RankingList img{ margin-top:10px;}
+
+.border4 .GoodsListWrap{ margin:10px 0 0;}
+.border4 .GoodsList h6,
+.border5 .GoodsList h6{ overflow:hidden; text-overflow:ellipsis; white-space:normal; font-weight:normal; margin-top:7px;}
+
+.right_box2_right .GoodsListWrap{ margin:0;}
+.right_box2_right .GoodsList .itemsWrap{ margin:10px 0 0;}
+.right_box2_right h6{ height:35px; overflow:hidden; text-overflow:ellipsis; white-space:normal; font-weight:normal; margin-top:5px;}
+
+.Comment{ width:189px; padding:0 10px; margin-top:-5px; overflow:hidden;}
+.Comment h6{ width:189px;overflow:hidden; text-overflow:ellipsis; white-space: nowrap;}
+.Comment h6 a{ color:#005AA0;}
+.Comment .cmt_time{ color:#005AA0;}
+.Comment .cmt_member{ color:#12A000;}
+.Comment li{ border-top:1px solid #EFEFEF;}
+
+.Product_List_S2 .GoodsList h6{ margin:0;}
+.Product_List_S2 .GoodsListWrap{ margin:0;}
+
+.LinkList table a{ color:#005AA0; font-weight:bold;}
+
+
+.GoodsBrowsed .goodsName{ width:120px; height:60px; overflow:hidden;}
+.GoodsBrowsed .prepend-2{ padding-left:0;}
+
+/*					对自定义页面的html元素重新定义
+/*--------------------------------------------------------*/
+
+.pageWrap { }
+.pageWrap h2 { margin:0 0 15px 0; color:#666; background:#DEEDF9; padding:3px 10px;}
+.pageWrap h4 { margin:10px 0; border-bottom:1px solid #ddd; background:url(arrowleft-orange.gif) 0 5px no-repeat; padding-left:14px; }
+.pageWrap ol li { color:#666; }
+
+/*=品牌 
+=============================================================================================*/
+.BrandListWrap{ padding:0 3px;}
+.BrandListWrap td{ padding:4px 0;}
+.BrandListWrap table img{ width:88px; height:31px; border:1px solid #EFEFEF; padding:1px; margin:0 auto;}
+
+/*==============================================================================================
+商品分类
+=============================================================================================*/
+.GoodsCategoryWrap{
+	text-align:left;
+	padding:8px 0;
+}
+
+.GoodsCategoryWrap table td{ border:none; padding:2px 0; width:100px;}
+/*商品分类默认方式(最普通)*/
+/*-------------------------------------------------------------------------------------------*/
+/*第一层*/
+.c-cat-depth-1 a{ background:none;  color:#D6290B; display:block; padding-left:0;font-weight:bold;}
+/*第二层*/
+.c-cat-depth-2{ color:#D6290B;}
+.c-cat-depth-2 a{background:none; margin:0; color:#D6290B; font-size:14px; padding-left:8px;}
+/*第三层*/
+.c-cat-depth-3 a{font-weight:normal; font-size:12px;}
+
+
+

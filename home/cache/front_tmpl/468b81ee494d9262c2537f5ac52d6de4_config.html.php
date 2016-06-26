@@ -1,0 +1,1 @@
+<?php if(!function_exists('tpl_input_html')){ require(CORE_DIR.'/include_v5/smartyplugins/input.html.php'); } ?><div class="tableform widgetconfig"> <h5>用户自定义版块内容:</h5> <?php $this->_vars["userhtml"]=$this->_vars['setting']['usercustom'];  echo tpl_input_html(array('name' => "usercustom",'value' => $this->_vars['userhtml']), $this);?> </div>

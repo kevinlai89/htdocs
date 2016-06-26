@@ -1,0 +1,8 @@
+<?php if(!function_exists('tpl_modifier_escape')){ require(CORE_DIR.'/include_v5/smartyplugins/modifier.escape.php'); } if(!function_exists('tpl_modifier_storager')){ require(CORE_DIR.'/include_v5/smartyplugins/modifier.storager.php'); } ?><html xmlns="http://www.w3.org/1999/xhtml"> <head> <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> <title><?php echo $this->_vars['goods_name_show']; ?> 相册 - <?php echo $this->_vars['company_name']; ?></title> </head> <style> body{ margin:0; } </style> <body> <div id="show-pic"><embed src="statics/pic-view.swf" quality="high" id="picview" flashvars="copyright=shopex&xml=<products name='<?php echo tpl_modifier_escape($this->_vars['goods_name'],html); ?>' showbuy='false' shopname='<?php echo tpl_modifier_escape($this->_vars['company_name'],html); ?>'><?php foreach ((array)$this->_vars['image_file'] as $this->_vars['key'] => $this->_vars['item']){ ?><smallpic<?php if( $this->_vars['key']==$this->_vars['selected'] ){ ?> selected='selected'<?php } ?>><?php echo tpl_modifier_storager($this->_vars['item']['small']); ?></smallpic><bigpic<?php if( $this->_vars['key']==$this->_vars['selected'] ){ ?> selected='selected'<?php } ?>><?php echo tpl_modifier_storager($this->_vars['item']['big']); ?></bigpic><link><?php echo $this->_env_vars['base_url'],"product-{$this->_vars['item']['goods_id']}",(((is_numeric($this->_vars['item']['goods_id']) && 'index'=='index') || !'index')?'':'-'.'index'),'.html';?></link><?php } ?></products>" pluginspage="http://www.macromedia.com/go/getflashplayer" type="application/x-shockwave-flash" width="100%" height="100%"></embed></object> </div> </body> </html> <script>
+function windowClose(){
+  if(window.confirm("您是否关闭当前窗口")){
+    window.close();
+  }
+
+}
+</script> 

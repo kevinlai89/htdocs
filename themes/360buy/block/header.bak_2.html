@@ -1,0 +1,62 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<{header}>
+<link rel="stylesheet" type="text/css" href="images/css.css" />
+
+</head>
+<body>
+<div id="shortcut">
+    <div class="shortcut">
+    	<div class="shor_left"><{widgets id="shor_left"}></div>
+        <div class="shor_right"><div class="buz"><{widgets id="shor_right"}></div><div class="mamber"><{widgets id="shor_right2"}></div></div>
+    </div>
+</div>
+<div id="m_top">
+	<div class="logo"><{widgets id="logo"}></div>
+    <div class="hot_stuch">
+    	<div class="hot_bbx">            
+            <{widgets id="search"}>            
+        </div>
+        <div class="bbx" style="margin-top:5px;"><{widgets id="hot_search"}></div>
+    </div>
+   <div class="home"><{widgets id="home"}></div>
+    <div class="cart"><{widgets id="cart"}></div>
+</div>
+<div id="nav">
+	<div class="m_nav">
+    	<div class="all_cany"> <{widgets id="cny"}></div>
+        <div class="h_nav"><div id="Menu"><{widgets id="h_nav"}></div></div>
+        <div class="r_nav"></div>
+    </div>
+</div>
+<div class="clear"></div>
+  <script>
+if($('<{$widgets_id}>_showMore')){
+	$('<{$widgets_id}>_showMore').setOpacity(.8);
+}
+
+var objMenu = document.getElementById("Menu");
+if (objMenu) {
+	var objs = objMenu.getElementsByTagName("A");
+	
+	var currentPage = document.location.href.toString();
+	currentPage = currentPage.substr(currentPage.lastIndexOf("/") + 1, currentPage.length);
+	
+	if (currentPage.length < 1) {
+		objs[0].className = "hover";
+	}
+	else {
+	
+		for (var i = 0; i < objs.length; i++) {
+			var page = objs[i].href;
+			
+			page = page.substr(page.lastIndexOf("/") + 1, page.length);
+			if (page == currentPage) 
+				objs[i].className = "hover";
+			
+		}
+	}
+}
+
+</script>

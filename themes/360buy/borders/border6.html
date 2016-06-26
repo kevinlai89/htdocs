@@ -1,0 +1,37 @@
+<div class="border6" id="<{$widgets_id}>">
+	<div class="border-top"><h3><{$title}></h3></div>
+	<div class="border-body">
+<div id="Goodlist-Scroll-2800" class="ScrollWrap" style="height:160px;overflow:hidden;">	
+	<{$body}>
+</div>	
+	</div>
+</div>
+
+
+
+	<script>
+window.addEvent('domready',function(){
+	var GoodsContainer=$('Goodlist-Scroll-2800').scrollTo(0,0);
+	var scroll = GoodsContainer.getScrollSize();	
+	if(GoodsContainer.getSize().y<scroll.y){
+		GoodsContainer.fn = new Fx.Scroll(GoodsContainer, {duration: 600});
+		var scrollStart = function(){
+			GoodsContainer.store('FxScrollY', (function(){
+				var to = GoodsContainer.getScrollTop()+160;
+				if(to>=scroll.y){
+					GoodsContainer.scrollTo(0,0);
+					to=160;
+				}
+				GoodsContainer.fn.stop();
+				GoodsContainer.fn.start(0, to);
+			}).periodical(4000) );
+		}
+
+		GoodsContainer.addEvents({
+			'mouseenter':function(){$clear(GoodsContainer.retrieve('FxScrollY'))},
+			'mouseleave':function(){scrollStart()}
+		});
+		scrollStart();
+	}
+});
+</script>

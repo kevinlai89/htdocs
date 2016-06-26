@@ -1,0 +1,344 @@
+﻿<div id="cat-config" style="display:none;">
+<div class="tableform widgetconfig">
+<div class="division">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+    <tr>
+    <th width="20%">选择关联分类：</th>
+    <td width="80%" colspan="3">
+	<input type="radio" name="show_treetype" value="0" <{if !$setting.show_treetype}>checked<{/if}> onclick="$('cat-treetype').hide()"> 仅商品分类 <input type="radio" name="show_treetype" value="1" <{if $setting.show_treetype==1}>checked<{/if}> onclick="$('cat-treetype').show()"> 仅虚拟分类 <input type="radio" name="show_treetype" value="2" <{if $setting.show_treetype==2}>checked<{/if}> onclick="$('cat-treetype').show()"> 商品分类+虚拟分类</td>
+    </tr>
+	<tbody id="cat-treetype" <{if !$setting.show_treetype}>style="display:none;"<{/if}>>
+    <tr>
+    <th width="20%">虚拟分类节点：</th>
+    <td width="30%"><select name="show_virtualid"><option value=''>[所有分类]</option>
+			   <{foreach from=$data.vcats item=item key=key}>
+			   <option value="<{$item.cat_id}>" <{if $item.cat_id==$setting.show_virtualid}>selected<{/if}>><{$item.cat_name|paddingleft:$item.step*4-4:'&nbsp;'}></option>
+			   <{/foreach}>
+			  </select>
+	</td>
+	<th width="20%">显示虚拟分类节点：</th>
+    <td width="30%"><select name="show_treenode">
+		      <option value="on" <{if $setting.show_treenode =='on'}>selected<{/if}>>是</option>
+			  <option value="off" <{if $setting.show_treenode =='off'}>selected<{/if}>>否</option>
+			  </select>
+	</td>
+    </tr>
+	</tbody>
+	<tbody id="cat-assignid">
+    <tr>
+    <th width="20%">指定显示分类：</th>
+    <td width="80%" colspan="3">
+		<select name="assignid">
+		<option value='-1' <{if $setting.assignid==-1}>selected<{/if}>>显示所有分类</option>
+		<option value='0' <{if !$setting.assignid}>selected<{/if}>>自动判断</option>
+		<{foreach from=$data.cats item=parent}>
+		<option value="<{$parent.cat_id}>" <{if $parent.cat_id==$setting.assignid}>selected<{/if}>><{$parent.label}></option>
+			<{if $parent.sub}>
+				<{foreach from=$parent.sub item=Child}>
+				<option value="<{$Child.cat_id}>" <{if $Child.cat_id==$setting.assignid}>selected<{/if}>><{$Child.label|paddingleft:2:'&nbsp;'}></option>
+					<{if $Child.sub }>
+					<{*foreach from=$Child.sub item=gChild}>
+						<option value="<{$gChild.cat_id}>" <{if $gChild.cat_id==$setting.assignid}>selected<{/if}>><{$gChild.label|paddingleft:4:'&nbsp;'}></option>
+					<{/foreach*}>
+					<{/if}>
+				<{/foreach}>
+			<{/if}>
+		<{/foreach}>
+		</select> 所选分类没有下级，自动显示上级分类下的目录树。
+    </tr>
+	</tbody>
+  </table>
+</div>
+</div>
+
+<span style="margin-left:10px;" class="sysiconBtn addorder" onclick="addCustom();">添加自定义顶级菜单</span>
+<div class="tableform widgetconfig">
+  <div class="division" id="cat-custom-list">
+  <{if $setting.custommenus}>
+  <{foreach from=$setting.custommenus item=menu key=key}>
+		<div class="custom" style="margin-top:5px;">
+			<table width="100%" cellpadding="0" cellspacing="0">
+			  <tr>
+			  <th width="20%">栏目标题：</th>
+			  <td width="30%"><input type="text" name="custommenus[<{$menu.i}>][text]" value="<{$menu.text}>"></td>
+			  <th width="20%">链接地址：</th>
+			  <td width="30%"><input type="text" name="custommenus[<{$menu.i}>][url]" value="<{$menu.url}>"> <{img src="images/bundle/delecate.gif" onclick="delLink(this)" style="cursor:pointer;"}></td>
+			  </tr>
+			  <tr>
+			  <th width="20%">className：</th>
+			  <td width="30%"><input type="text" name="custommenus[<{$menu.i}>][classname]" value="<{$menu.classname}>"></td>
+			  <th width="20%">插入位置：</th>
+			  <td width="30%"><input type="radio" name="custommenus[<{$menu.i}>][place]" value="0" <{if !$menu.place}>checked<{/if}>> 分类之前 <input type="radio" name="custommenus[<{$menu.i}>][place]" value="1"<{if $menu.place}>checked<{/if}>> 分类之后</td>
+			  </tr>
+			</table>
+			<input type=hidden name="custommenus[<{$menu.i}>][i]" value="<{$menu.i}>">
+		</div>
+  <{/foreach}>
+  <{/if}>
+  </div>
+</div>
+
+<div id="cat-ducemenu-1" class="tableform widgetconfig">
+  <div class="division">
+  <table width="100%" border="0" cellspacing="0" cellpadding="0">
+    <tr><th colspan="4" style="text-align:left;background:#DDE5FC;color:#669">&nbsp;<strong>顶级菜单样式</strong></th></tr>
+	<tr>
+          <th width="20%">顶级分类显示数量</th>
+          <td width="30%"><{input name="showcatslist" value=$setting.showcatslist|default:'9'}>0为全显示</td>
+		  <th width="20%">字体左右边距：</th>
+          <td width="30%"><{input name="style1[margin1]" value=$setting.style1.margin1|default:'8' required="true" type="digits"}> px</td>
+     </tr>
+    <tr>
+    <th width="20%">普通字体颜色：</th>
+    <td width="30%"><{input type="color" name="style1[color]" value=$setting.style1.color|default:'#FFF'}></td>
+	<th width="20%">高亮字体颜色：</th>
+    <td width="30%"><{input type="color" name="style1[hcolor]" value=$setting.style1.hcolor|default:'#C00'}></td>
+    </tr>
+    <tr>
+    <th width="20%">高亮背景色：</th>
+    <td width="30%"><{input type="color" name="style1[hbgcolor]" value=$setting.style1.hbgcolor|default:'#FFF'}></td>
+	<th width="20%">鼠标经过背景色：</th>
+    <td width="30%"><{input type="color" name="style1[overcolor]" value=$setting.style1.overcolor|default:'#FFF'}></td>
+    </tr>
+  </table>
+  </div>
+
+  <div class="division">
+  <table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr><th colspan="4" style="text-align:left;background:#DDE5FC;color:#669">&nbsp;<strong>弹出菜单样式</strong></th></tr>
+    <tr>
+    <th>商品分类循环深度：</th>
+    <td><select name="ducemenu_1_loop">
+	  <option value="2" <{if $setting.ducemenu_1_loop=="2"}>selected="selected"<{/if}>>显示二级分类</option>
+	  <option value="3" <{if $setting.ducemenu_1_loop!="2"}>selected="selected"<{/if}>>显示三级分类</option>
+  </select></td>
+    <th width="20%">菜单背景：</th>
+    <td width="30%"><{input type="color" name="style1[fbgcolor]" value=$setting.style1.fbgcolor|default:'#FFF'}></td>
+	</tr>
+	<tr>
+    <th>菜单边框宽度：</th>
+	<td width="30%"><{input name="style1[border]" type="text" value=$setting.style1.border|default:'1'}>px</td>
+	<th width="20%">菜单边框色：</th>
+    <td width="30%"><{input type="color" name="style1[fbdcolor]" value=$setting.style1.fbdcolor|default:'#C00'}></td>
+    </tr>
+    <tr>
+    <th width="20%">普通字体颜色：</th>
+    <td width="30%"><{input type="color" name="style1[fcolor]" value=$setting.style1.fcolor|default:'#333'}></td>
+	<th width="20%">高亮字体颜色：</th>
+    <td width="30%"><{input type="color" name="style1[fhcolor]" value=$setting.style1.fhcolor|default:'#900'}></td>
+    </tr>
+    <tr>
+    <th width="20%">分类宽度：</th>
+    <td width="30%"><{input type="text" name="style1[width]" value=$setting.style1.width|default:'150' required="true" type="digits"}> px</td>
+	<th width="20%">高亮背景色：</th>
+    <td width="30%"><{input type="color" name="style1[fhbgcolor]" value=$setting.style1.fhbgcolor|default:'#ffe1e1'}></td>
+    </tr>
+    <tr>
+    <th width="20%">品牌栏字体色：</th>
+    <td width="30%"><{input type="color" name="style1[tagtreefont]" value=$setting.style1.tagtreefont|default:'#3d5092'}></td>
+	<th width="20%">品牌栏高亮背景色：</th>
+    <td width="30%"><{input type="color" name="style1[tagtreebg]" value=$setting.style1.tagtreebg|default:'#cde7fa'}></td>
+    </tr>
+    <tr>
+    <th width="20%">品牌栏宽度：</th>
+    <td width="30%"><{input type="color" name="style1[tagtreewidth]" value=$setting.style1.tagtreewidth|default:'180'}></td>
+	<th width="20%">品牌最多显示个数：</th>
+    <td width="30%"><{input name="brandshow" value=$setting.brandshow|default:'10'}></td>
+    </tr>
+	<tr>
+    <th width="20%">三级分类列数：</th>
+    <td width="30%"><{input name="style1[catcols]" value=$setting.style1.catcols|default:'1'}></td>
+	<th width="20%"></th>
+    <td width="30%"></td>
+    </tr>
+    <tr>
+    <th width="20%">分类最多显示数：</th>
+    <td colspan="3"><{input name="gshowmax" value=$setting.gshowmax|default:'12'}> 0 为全显示，如果商品分类超出设置数，<span id="showmax"></span></td>
+    </tr>
+  </table>
+  </div>
+</div>
+<style>
+#set-ducemenu-1 li{margin-right:5px;list-style:none;cursor:pointer;}
+#set-ducemenu-1 li input{vertical-align:middle;border:none;}
+#set-ducemenu-1 li.checked{color:#690;}
+#set-ducemenu-1 .text{width:80px;}
+</style>
+<div id="set-ducemenu-1" class="tableform widgetconfig">
+<div class="division">
+  <table width="100%" border="0" cellspacing="0" cellpadding="0">
+    <tr><td colspan="4" style="text-align:left;background:#DDE5FC;color:#669;width:100%"><strong>热门分类及标签配置</strong>&nbsp;首先请配置好虚拟分类，然后在下列顶级分类选择相关节点，列表不显示虚拟分类节点</td></tr>
+<{foreach from=$data.cats item=parent}>
+<tr><td colspan="4" style="border-bottom:none;background:#eee"><strong><{$parent.label}></strong>  &nbsp; 重命名：<input type="text" name="catsname[<{$parent.cat_id}>]" value="<{$setting.catsname.{$parent.cat_id}}>">  &nbsp; 链接重定向：<input type="text" name="resetlink[<{$parent.cat_id}>]" value=<{$setting.resetlink.{$parent.cat_id}}>></td></tr>
+<!--<tr><td style="border-bottom:none;">
+<select multiple="multiple" name="cat_id[<{$parent.cat_id}>][]" size="6">
+</select>
+</td></tr>-->
+<tr><td colspan="4" style="text-align:left;color:#999">热门分类标题: <input type="text" class="text" name="hottitle[<{$parent.cat_id}>]" value="<{$setting.hottitle.{$parent.cat_id}}>"> &nbsp; 分类内容: <select name="virtual[<{$parent.cat_id}>]"><option value=0>选择虚拟分类相关节点</option>
+			   <{foreach from=$data.vcats item=item key=key}>
+			   <option value="<{$item.cat_id}>" <{if $item.cat_id==$setting.virtual.{$parent.cat_id}}>selected<{/if}>><{$item.cat_name|paddingleft:$item.step*4-4:'&nbsp;'}></option>
+			   <{/foreach}>
+			  </select>
+			 &nbsp; 品牌区标题: <input type="text" class="text" name="brandtitle[<{$parent.cat_id}>]" value="<{$setting.brandtitle.{$parent.cat_id}}>"></td></tr>
+<tr><td colspan="4" style="text-align:left;color:#999"><ul class="clearfix" onmouseover="altStyle(this)"><li style="float:left;margin-right:5px;">选择标签:</li> 
+		<{foreach from=$data.tags item=tags key=key}>
+		<li style="float:left;" <{in_array match=$tags.tag_id array=$setting.goodstag.{$parent.cat_id} returnvalue='class="checked"'}>><input type="checkbox" name="goodstag[<{$parent.cat_id}>][]" value="<{$tags.tag_id}>" <{in_array match=$tags.tag_id array=$setting.goodstag.{$parent.cat_id} returnvalue=checked}>> <{$tags.tag_id}>.<{$tags.tag_name}></li>
+		<{/foreach}></ul>
+		</td></tr>
+<{/foreach}>
+  </table>
+  </div>
+</div>
+
+<div id="set-ducemenu-4" class="tableform widgetconfig">
+  <div class="division"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+    <tr>
+          <th>菜单字体左右边距：</th>
+          <td><{input name="Margins" value=$setting.Margins|default:'0' required="true" type="digits"}> px</td>
+          <th>菜单字体顶边距：</th>
+          <td><{input name="MarginTop" value=$setting.MarginTop|default:'0' required="true" type="digits"}> px</td>
+        </tr>
+  </table></div>
+<div class="division">
+  <table width="100%" border="0" cellspacing="0" cellpadding="0">
+    <tr><th colspan="4" style="text-align:left;background:#DDE5FC;color:#669"><strong>分类重设</strong> 如不需重设请留空</th></tr>
+<{foreach from=$data.cats item=parent}>
+<tr><td colspan="4" style="border-bottom:none;background:#eee"><strong><{$parent.label}></strong>  &nbsp; 重命名：<input type="text" name="catsname4[<{$parent.cat_id}>]" value="<{$setting.catsname4.{$parent.cat_id}}>">  &nbsp; 链接重定向：<input type="text" name="resetlink4[<{$parent.cat_id}>]" value=<{$setting.resetlink4.{$parent.cat_id}}>></td></tr>
+<{/foreach}>
+  </table>
+  </div>
+</div>
+
+<div id="set-ducemenu-2" class="tableform widgetconfig">
+<div class="division">
+  <table width="100%" border="0" cellspacing="0" cellpadding="0">
+    <tr><th colspan="4" style="text-align:left;background:#DDE5FC;color:#669"><strong>配置显示方式</strong>&nbsp;虚拟分类列表只显示虚拟分类节点下级菜单</th></tr>
+<{foreach from=$data.cats item=parent}>
+<tr><th colspan="4" style="border-bottom:none;width:100%;text-align:left;"><strong><{$parent.label}></strong>  &nbsp; 重命名：<input type="text" name="goodsname[<{$parent.cat_id}>]" value=<{$setting.goodsname.{$parent.cat_id}}>></th></tr>
+<tr><td colspan="4" style="text-align:left;color:#999">商品分类: 
+<select name="depthlevel2[<{$parent.cat_id}>]">
+<option value=0>不显示</option>
+<option value="2" <{if $setting.depthlevel2.{$parent.cat_id}==2}> selected<{/if}>>循环二级</option>
+<option value="3" <{if $setting.depthlevel2.{$parent.cat_id}==3}> selected<{/if}>>循环三级</option>
+</select> 虚拟分类: <select name="virtual2[<{$parent.cat_id}>]"><option value=0>不显示</option>
+			   <{foreach from=$data.vcats item=item key=key}>
+			   <option value="<{$item.cat_id}>" <{if $item.cat_id==$setting.virtual2.{$parent.cat_id}}>selected<{/if}>><{$item.cat_name|paddingleft:$item.step*4-4:'&nbsp;'}></option>
+			   <{/foreach}>
+			  </select> 分类跨行数: <input type="text" name="catmax2[<{$parent.cat_id}>]" value=<{$setting.catmax2.{$parent.cat_id}|default:'1'}> size=4> 品牌最多个数:<input type="text" name="brandshow2[<{$parent.cat_id}>]" value=<{$setting.brandshow2.{$parent.cat_id}|default:'20'}> size=4>个</td></tr>
+<{/foreach}>
+  </table>
+  </div>
+</div>
+<div id="ducedis-tpl"><input type="hidden" name="ducedis_tpl" class="ducedis_tpl" value="<{$setting.ducedis_tpl}>"></div>
+<script>
+function getCfgForm(id){var config = $(id);while(config.tagName != 'FORM'){config = config.getParent();}return config;}
+function getWgtTpl(){
+  var sels = getCfgForm('cat-config').getElements('select');
+  var wgtTpl = '';
+  sels.each(function(sel){
+    if(sel.getProperty('name') == '__wg[tpl]') wgtTpl = sel;
+  });
+  return wgtTpl;
+}
+function hideAll(els){els.each(function(el){el.hide();});}
+function setCfgView(view){
+  var views = [$('ducedis-tpl'),$('cat-ducemenu-1')];
+  var setting= [$('ducedis-tpl'),$('set-ducemenu-1'),$('set-ducemenu-2'),$('set-ducemenu-4')];
+  hideAll(views);
+  hideAll(setting);
+  
+  $('cat-config').getElement('.ducedis_tpl').setProperty('value', view)
+  switch(view){
+	case 'ducemenu-2.html':
+	  setting[2].show();
+	  break;
+	case 'ducemenu-5.html':
+	case 'ducemenu-4.html':
+	  setting[3].show();
+	  break;
+    default:
+	  views[1].show();
+	  $('showmax').set('text', view=='ducemenu-1.html' ? '超出部分自动采用弹出式。' : '超出部分隐藏并显示更多');
+	  setting[1].show();
+      break;
+  }
+}
+function setToggler(togglers){
+  togglers.each(function(toggler){
+    var view = toggler.getProperty('name')+'-view';
+    toggler.addEvent('click',function(){
+      if(this.value=="on"){
+        $(view).show();
+      }else{
+        $(view).hide();
+      }
+    });
+  });
+}
+var catTpl = getWgtTpl();
+setCfgView(catTpl.value);
+$('cat-config').show();
+
+catTpl.addEvent('change',function(){
+  setCfgView(this.value);
+});
+
+function addCustom(){
+	var content;
+	d=new Date();
+	i=d.getTime();
+	content='\
+		<div class="custom" style="margin-top:5px;">\
+			<table width="100%" cellpadding="0" cellspacing="0">\
+			  <tr>\
+			  <th width="20%">栏目标题：</th>\
+			  <td width="30%"><input type="text" name="custommenus['+i+'][text]"></td>\
+			  <th width="20%">链接地址：</th>\
+			  <td width="30%"><input type="text" name="custommenus['+i+'][url]"> <{img src="images/bundle/delecate.gif" onclick="delLink(this)" style="cursor:pointer;"}></td>\
+			  </tr>\
+			  <tr>\
+			  <th width="20%">className：</th>\
+			  <td width="30%"><input type="text" name="custommenus['+i+'][classname]"></td>\
+			  <th width="20%">插入位置：</th>\
+			  <td width="30%"><input type="radio" name="custommenus['+i+'][place]" value="0"> 前面 <input type="radio" name="custommenus['+i+'][place]" value="1" checked> 后面</td>\
+			  </tr>\
+			</table>\
+			<input type=hidden name=custommenus['+i+'][i] value="'+i+'">\
+		</div>\
+	';
+
+	$('cat-custom-list').adopt(new Element('div').set('html',content).getFirst());
+}
+
+delLink=function(o){$(o).getParent('.custom').remove();}
+
+function altStyle(obj){
+	$(obj).store('cc',0);
+	var lis = $(obj).getElements("li");
+	lis.addEvents({
+		"click": function(e){					
+			var o = window.ie ? event.srcElement.tagName : e.target.tagName;
+			if($(obj).retrieve('cc')) return;
+			$(obj).store('cc',1);
+			var input = this.getElement("input");
+			var type = input.getProperty("type");
+			if(["checkbox","radio"].contains(type)){
+				if(input.disabled) return;
+				if(type=="radio") lis.each(function(li){li.className=""});
+
+				if(window.ie||o!="INPUT"&&input.onclick){
+					input.click();
+				}				
+				if(this.hasClass("checked")){
+					this.removeClass("checked");
+					input.checked = false;
+				} else {
+					this.addClass("checked");
+					input.checked = true;
+				}
+			}
+		},
+		"mouseup":function(e){$(obj).store('cc',0);}
+	});
+}
+</script>
