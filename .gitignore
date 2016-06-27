@@ -251,3 +251,6 @@ paket-files/
 .idea/
 *.sln.iml
 /01111
+cache
+/home/cache/admin_tmpl
+/home/cache/front_tmpl

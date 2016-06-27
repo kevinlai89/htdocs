@@ -21,8 +21,8 @@ define('STORE_KEY', '579f8c0fa073165cb9c3d2e66042b1a4'); #密钥
 define('DB_PREFIX', 'sdb_');
 define('LANG', '');
 
-//false 
-define('WITHOUT_CACHE',true);
+//false true
+define('WITHOUT_CACHE',false);
 
 #启用触发器日志: home/logs/trigger.php
 //define ('TRIGGER_LOG',true);

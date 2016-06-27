@@ -25,14 +25,14 @@ ul li{ list-style:none;}
 		.shor_left{ width:25%; float:left;}
 		.shor_right{ width:74%; float:right;}
 			.mamber{ float:right; width:280px; margin-right:10px; text-align:right;}
-			.buz{float:right; width:180px;}
+			.buz{float:right; width:450px;}
 			.shor_right .buz a{ float:right; margin:0 5px;} 
 			.shor_right .buz span{ float:right; width:1px; height:31px; background:url(fr.jpg) no-repeat center center;}
 #m_top{ width:1210px; margin:0 auto;}
 	.logo{ width:300px; float:left; margin-top:15px;}
 	.hot_stuch{ width:515px; float:left; margin:15px 20px 0 20px; color:#999;}
 		.hot_stuch a{ margin:0 5px; color:#999;}
-	.cart{width:285px; float:right; margin-top:25px;_width:290px;}
+	.cart{width:185px; float:right; margin-top:25px;_width:290px;}
 		.home{ width:72px; padding-left:40px; height:30px; line-height:30px; background:url(home.jpg); float:left; display:block; text-align:left;}
 		.ShopCartWrap{ width:125px; padding-left:35px; height:30px; line-height:30px; text-align:center; background:url(cart.jpg); display:block; float:left;}
 		.cart a{ margin:0 5px;}
@@ -105,7 +105,7 @@ ul li{ list-style:none;}
 		.goods_right{ width:310px; float:right; }
 			.goods_right img{ margin-top:10px;}
 		
-		.dmg3-drop-3 dl.sub dt{ width:60px;}
+		.dmg3-drop-3 dl.sub dt{ width:72px;}
 		.dmg3-drop-b{ background:#fcf4ea;}
 		.dmg3-depth-0 a.depth-0{ height:40px; padding:0 20px 0 30px; line-height:40px;}
 		.dmg3-depth-0 a.depth-0 strong{ width:100%; float:left; overflow:hidden;}
@@ -122,7 +122,7 @@ ul li{ list-style:none;}
 		.goods_left .GoodsListWrap{ border:1px solid #ddd; border-top:none; padding:10px 0 10px 10px; background:#fff; }
 		.goods_left .goodsImg{ margin-bottom:5px;}
 		.goods_left .itemsWrap{ margin:0 2px;} 
-		.dmg3-drop-3 dl.sub{border-bottom: 1px dotted #E8E8E8;}
+		.dmg3-drop-3 dl.sub{border-bottom: 1px dotted #E8E8E8; width:600px;}
 		
 		
 		.goods_cen .Article-Tabs, .goods_cen .GoodsList-Tabs{ padding:0; margin:0;border-left:1px solid #ddd; border-bottom:none; border-top:none;}
@@ -191,3 +191,5 @@ ul li{ list-style:none;}
 .dmg3-drop-b ul.sub li a { color:#999; font-size:12px;}
 .def_left .TreeList{ padding:10px 0;}
 .keywords{height:30px; border:none; line-height:30px;}
+
+

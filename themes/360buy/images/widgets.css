@@ -68,12 +68,13 @@ h3{ margin:0; padding:0;}
 /*商品分类默认方式(最普通)*/
 /*-------------------------------------------------------------------------------------------*/
 /*第一层*/
-.c-cat-depth-1 a{ background:none;  color:#D6290B; display:block; padding-left:0;font-weight:bold;}
+.c-cat-depth-1 a{ background:none;  color:#D6290B; display:block; padding-left:0;font-weight:bold; font-size:14px; height: 23px;
+}
 /*第二层*/
 .c-cat-depth-2{ color:#D6290B;}
-.c-cat-depth-2 a{background:none; margin:0; color:#D6290B; font-size:14px; padding-left:8px;}
+.c-cat-depth-2 a{background:none; margin:0; color:#2B64E4; font-size:12px; padding-left:12px;}
 /*第三层*/
-.c-cat-depth-3 a{font-weight:normal; font-size:12px;}
+.c-cat-depth-3 a{font-weight:normal; font-size:12px; color:#000; padding-left:24px;}
 
 
 
